@@ -3,397 +3,385 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estetica Beauty Care — Centro Estetico & Benessere</title>
-  
-  <!-- Fonts: Playfair Display for serif headers & Plus Jakarta Sans for body -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            serif: ['"Playfair Display"', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          },
-          colors: {
-            roseGold: '#C59B73',
-            roseGoldDark: '#9E7247',
-            roseGoldLight: '#F3E9DF',
-            warmCream: '#FAF7F2',
-            champagne: '#F3EBE1',
-            darkCharcoal: '#1A1817',
-          }
-        }
-      }
-    }
-  </script>
-
+  <title>Estetica Beauty Care — Prenotazione Diretta</title>
   <style>
-    /* Custom styling for luxury touch & smooth UI transitions */
+    :root {
+      --bg: #0f1115;
+      --card-bg: #1a1e26;
+      --accent: #25d366;
+      --accent-hover: #1ebc57;
+      --gold: #d4af37;
+      --text-main: #f8f9fa;
+      --text-muted: #94a3b8;
+      --border: rgba(212, 175, 55, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
     body {
-      background-color: #F4F0EA;
-      color: #24211F;
+      background-color: var(--bg);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
     }
 
-    .glass-card {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(197, 155, 115, 0.2);
+    .mobile-frame {
+      width: 100%;
+      max-width: 480px;
+      background: var(--bg);
+      padding: 16px;
+      padding-bottom: 100px;
     }
 
-    .glass-badge {
-      background: rgba(26, 24, 23, 0.65);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+    /* Top Trust Bar */
+    .trust-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--gold);
+      background: rgba(212, 175, 55, 0.08);
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
     }
 
-    .cta-glow {
-      box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.45);
+    /* Salon Header */
+    .salon-header {
+      text-align: center;
+      padding: 10px 0 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 20px;
     }
 
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
+    .salon-subtitle {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 6px;
+      font-weight: 700;
     }
-    .no-scrollbar {
-      -ms-overflow-style: none;
+
+    .salon-header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .salon-meta {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .salon-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Category Filters */
+    .filters {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
       scrollbar-width: none;
     }
+    .filters::-webkit-scrollbar { display: none; }
 
-    /* Accordion rotation effect */
-    .faq-icon {
-      transition: transform 0.3s ease;
+    .filter-btn {
+      background: var(--card-bg);
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      white-space: nowrap;
+      cursor: pointer;
     }
-    .faq-item.open .faq-icon {
-      transform: rotate(180deg);
+
+    .filter-btn.active {
+      background: var(--gold);
+      color: #000;
+      font-weight: 600;
+      border-color: var(--gold);
     }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease-out, opacity 0.3s ease;
-      opacity: 0;
+
+    /* Service Cards */
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
     }
-    .faq-item.open .faq-answer {
-      max-height: 200px;
-      opacity: 1;
+
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+    }
+
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+
+    .service-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .service-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .service-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .service-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding-top: 8px;
+    }
+
+    .tag-badge {
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* Testimonial Box */
+    .testimonial {
+      background: linear-gradient(145deg, #1a1e26, #14171f);
+      border-left: 3px solid var(--gold);
+      padding: 14px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+      font-size: 13px;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      color: #e2e8f0;
+      margin-bottom: 6px;
+    }
+
+    .testimonial-author {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* FAQ Section */
+    .faq-container {
+      margin-top: 20px;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .faq-question {
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Footer Branding */
+    .site-footer {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 24px;
+      padding-bottom: 20px;
+    }
+
+    /* Sticky CTA */
+    .cta-fixed {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 17, 21, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 12px 16px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+    }
+
+    .whatsapp-btn {
+      width: 100%;
+      max-width: 440px;
+      background-color: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px;
+      border-radius: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     }
   </style>
 </head>
-<body class="font-sans antialiased flex justify-center items-center min-h-screen sm:py-8 selection:bg-roseGold selection:text-white">
+<body>
 
-
-  <!-- App Wrapper (Mobile Viewport Simulator on Desktop) -->
-  <div class="w-full max-w-md bg-warmCream min-h-screen sm:min-h-[844px] sm:rounded-[40px] shadow-2xl relative overflow-hidden flex flex-col border border-stone-200/80">
-
-    <!-- Scrollable Main Container -->
-    <div class="flex-1 overflow-y-auto pb-28 no-scrollbar">
-
-      <!-- HERO SECTION -->
-      <div class="relative h-80 w-full overflow-hidden">
-        <img 
-          src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1000&auto=format&fit=crop" 
-          alt="Estetica Beauty Care Salon" 
-          class="w-full h-full object-cover object-center scale-105"
-        />
-        <!-- Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-warmCream via-black/30 to-black/60"></div>
-        
-        <!-- Header Badges -->
-        <div class="absolute top-5 left-4 right-4 flex justify-between items-center z-10">
-          <div class="glass-badge text-amber-200 border border-amber-300/30 text-[11px] font-medium tracking-wide px-3 py-1.2 rounded-full flex items-center gap-1.5 shadow-sm">
-            <span class="text-amber-400">★ 4.9</span>
-            <span class="text-stone-300">|</span>
-            <span class="text-stone-200">Google Reviews (190+)</span>
-          </div>
-
-          <span class="bg-white/20 backdrop-blur-md text-white text-[11px] font-medium px-3 py-1 rounded-full border border-white/20">
-            Aperto Ora
-          </span>
-        </div>
-
-        <!-- Hero Title Branding -->
-        <div class="absolute bottom-6 left-5 right-5 text-left">
-          <div class="inline-block px-2.5 py-0.5 bg-roseGold/80 text-white text-[10px] uppercase font-semibold tracking-widest rounded-md mb-2 backdrop-blur-sm">
-            Centro Estetico D'Eccellenza
-          </div>
-          <h1 class="font-serif text-3xl font-semibold text-white leading-tight drop-shadow-sm">
-            Estetica Beauty Care
-          </h1>
-          <p class="text-stone-200 text-xs mt-1 font-light tracking-wide">
-            Via Roma 142, Torino · Tel: 011 555 3892
-          </p>
-        </div>
-      </div>
-
-
-      <!-- QUICK INFO CHIPS -->
-      <div class="px-5 -mt-4 relative z-20">
-        <div class="glass-card rounded-2xl p-3.5 shadow-lg flex justify-between items-center text-center divide-x divide-stone-200">
-          <div class="px-2 flex-1">
-            <p class="text-[10px] text-stone-500 uppercase tracking-wider font-semibold">Orari</p>
-            <p class="text-xs font-semibold text-stone-900 mt-0.5">Mar-Sab 09-19</p>
-          </div>
-          <div class="px-2 flex-1">
-            <p class="text-[10px] text-stone-500 uppercase tracking-wider font-semibold">Prenotazioni</p>
-            <p class="text-xs font-semibold text-roseGoldDark mt-0.5">WhatsApp 1-Tap</p>
-          </div>
-          <div class="px-2 flex-1">
-            <p class="text-[10px] text-stone-500 uppercase tracking-wider font-semibold">Esperienza</p>
-            <p class="text-xs font-semibold text-stone-900 mt-0.5">12+ Anni</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CATEGORY TABS -->
-      <div class="mt-8 px-5">
-        <div class="flex justify-between items-baseline mb-3">
-          <h2 class="font-serif text-xl font-bold text-darkCharcoal">Trattamenti Esclusivi</h2>
-          <span class="text-xs text-stone-500 font-medium">Listino Ufficiale</span>
-        </div>
-
-        <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-          <button onclick="filterCategory('all', this)" class="cat-btn bg-darkCharcoal text-white text-xs font-semibold px-4 py-2 rounded-xl whitespace-nowrap shadow-sm transition-all">
-            Tutti
-          </button>
-          <button onclick="filterCategory('viso', this)" class="cat-btn bg-white border border-stone-200/80 text-stone-600 text-xs font-medium px-4 py-2 rounded-xl whitespace-nowrap transition-all hover:bg-stone-50">
-            Viso & Anti-Age
-          </button>
-          <button onclick="filterCategory('corpo', this)" class="cat-btn bg-white border border-stone-200/80 text-stone-600 text-xs font-medium px-4 py-2 rounded-xl whitespace-nowrap transition-all hover:bg-stone-50">
-            Corpo & SPA
-          </button>
-          <button onclick="filterCategory('nails', this)" class="cat-btn bg-white border border-stone-200/80 text-stone-600 text-xs font-medium px-4 py-2 rounded-xl whitespace-nowrap transition-all hover:bg-stone-50">
-            Sguardo & Nails
-          </button>
-        </div>
-      </div>
-
-
-      <!-- SERVICES LIST -->
-      <div class="mt-4 px-5 space-y-3.5">
-
-        <!-- Treatment 1 -->
-        <div class="service-card viso bg-white rounded-2xl p-3.5 border border-stone-200/70 shadow-sm flex gap-3.5 items-center transition-all hover:border-roseGold/40">
-          <img 
-            src="https://images.unsplash.com/photo-1512290900673-7002ddb92109?q=80&w=300&auto=format&fit=crop" 
-            alt="Rituale Viso Gold" 
-            class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
-          />
-          <div class="flex-grow min-w-0">
-            <div class="flex justify-between items-start gap-2">
-              <h3 class="font-semibold text-stone-900 text-sm truncate">Rituale Viso Gold Illuminante</h3>
-              <span class="font-serif font-bold text-roseGoldDark text-base flex-shrink-0">€65</span>
-            </div>
-            <p class="text-stone-500 text-xs mt-1 line-clamp-2">Detersione profonda ad ultrasuoni con acido ialuronico e maschera all'oro 24k.</p>
-            <div class="mt-2 flex items-center justify-between">
-              <span class="text-[10px] bg-roseGoldLight text-roseGoldDark font-medium px-2 py-0.5 rounded-md">
-                ⏱️ 50 minuti
-              </span>
-              <span class="text-[10px] text-emerald-600 font-semibold">
-                Consigliato
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Treatment 2 -->
-        <div class="service-card corpo bg-white rounded-2xl p-3.5 border border-stone-200/70 shadow-sm flex gap-3.5 items-center transition-all hover:border-roseGold/40">
-          <img 
-            src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=300&auto=format&fit=crop" 
-            alt="Massaggio Rimodellante" 
-            class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
-          />
-          <div class="flex-grow min-w-0">
-            <div class="flex justify-between items-start gap-2">
-              <h3 class="font-semibold text-stone-900 text-sm truncate">Massaggio Rimodellante Deep</h3>
-              <span class="font-serif font-bold text-roseGoldDark text-base flex-shrink-0">€75</span>
-            </div>
-            <p class="text-stone-500 text-xs mt-1 line-clamp-2">Tecnica drenante intensiva anti-gonfior con oli botanici biologici e aromaterapia.</p>
-            <div class="mt-2 flex items-center justify-between">
-              <span class="text-[10px] bg-roseGoldLight text-roseGoldDark font-medium px-2 py-0.5 rounded-md">
-                ⏱️ 60 minuti
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Treatment 3 -->
-        <div class="service-card nails bg-white rounded-2xl p-3.5 border border-stone-200/70 shadow-sm flex gap-3.5 items-center transition-all hover:border-roseGold/40">
-          <img 
-            src="https://images.unsplash.com/photo-1583001809873-a1284a5da517?q=80&w=300&auto=format&fit=crop" 
-            alt="Laminazione Ciglia" 
-            class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
-          />
-          <div class="flex-grow min-w-0">
-            <div class="flex justify-between items-start gap-2">
-              <h3 class="font-semibold text-stone-900 text-sm truncate">Laminazione Ciglia & Cheratina</h3>
-              <span class="font-serif font-bold text-roseGoldDark text-base flex-shrink-0">€55</span>
-            </div>
-            <p class="text-stone-500 text-xs mt-1 line-clamp-2">Curvatura, tinta e nutrimento alla cheratina per uno sguardo intenso fino a 6 settimane.</p>
-            <div class="mt-2 flex items-center justify-between">
-              <span class="text-[10px] bg-roseGoldLight text-roseGoldDark font-medium px-2 py-0.5 rounded-md">
-                ⏱️ 45 minuti
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Treatment 4 -->
-        <div class="service-card nails bg-white rounded-2xl p-3.5 border border-stone-200/70 shadow-sm flex gap-3.5 items-center transition-all hover:border-roseGold/40">
-          <img 
-            src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=300&auto=format&fit=crop" 
-            alt="Manicure Russian Spa" 
-            class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
-          />
-          <div class="flex-grow min-w-0">
-            <div class="flex justify-between items-start gap-2">
-              <h3 class="font-semibold text-stone-900 text-sm truncate">Manicure Russa & Semipermanente</h3>
-              <span class="font-serif font-bold text-roseGoldDark text-base flex-shrink-0">€40</span>
-            </div>
-            <p class="text-stone-500 text-xs mt-1 line-clamp-2">Dry manicure ad alta precisione con rafforzo unghia naturale e colore ultra-lucido.</p>
-            <div class="mt-2 flex items-center justify-between">
-              <span class="text-[10px] bg-roseGoldLight text-roseGoldDark font-medium px-2 py-0.5 rounded-md">
-                ⏱️ 50 minuti
-              </span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-
-      <!-- TESTIMONIAL CARD -->
-      <div class="mt-8 px-5">
-        <div class="bg-gradient-to-br from-white to-champagne/40 rounded-2xl p-5 border border-roseGold/20 shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <img 
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop" 
-              alt="Cliente Soddisfatta" 
-              class="w-10 h-10 rounded-full object-cover border border-roseGold"
-            />
-            <div>
-              <p class="font-semibold text-stone-900 text-sm">Valentina S.</p>
-              <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-stone-400 text-[10px] ml-1.5 font-sans">(Cliente Verificata)</span></div>
-            </div>
-          </div>
-          <p class="text-stone-600 text-xs italic font-serif leading-relaxed">
-            "Professionalità ai massimi livelli! Il trattamento viso illuminante ha totalmente rigenerato la mia pelle. Prenotare via WhatsApp è stato semplicissimo e veloce."
-          </p>
-        </div>
-      </div>
-
-
-      <!-- FAQ ACCORDION -->
-      <div class="mt-8 px-5">
-        <h2 class="font-serif text-lg font-bold text-darkCharcoal mb-3">Domande Frequenti</h2>
-        
-        <div class="space-y-2.5">
-          <!-- FAQ 1 -->
-          <div class="faq-item bg-white rounded-xl border border-stone-200/80 overflow-hidden transition-all">
-            <button onclick="toggleFaq(this)" class="w-full p-3.5 text-left flex justify-between items-center gap-2">
-              <span class="text-xs font-semibold text-stone-800">Come funziona la prenotazione su WhatsApp?</span>
-              <svg class="faq-icon w-4 h-4 text-stone-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-            <div class="faq-answer px-3.5 pb-3 text-xs text-stone-500 leading-relaxed">
-              Cliccando il bottone in basso verrai indirizzata alla chat WhatsApp con la reception. Indichi il trattamento e l'orario desiderato e ti confermeremo l'appuntamento immediatamente.
-            </div>
-          </div>
-
-          <!-- FAQ 2 -->
-          <div class="faq-item bg-white rounded-xl border border-stone-200/80 overflow-hidden transition-all">
-            <button onclick="toggleFaq(this)" class="w-full p-3.5 text-left flex justify-between items-center gap-2">
-              <span class="text-xs font-semibold text-stone-800">È necessario versare un acconto?</span>
-              <svg class="faq-icon w-4 h-4 text-stone-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-            <div class="faq-answer px-3.5 pb-3 text-xs text-stone-500 leading-relaxed">
-              No, per la maggior parte dei trattamenti non è richiesto alcun acconto. Pagherai comodamente in salone con carta, contanti o Satispay.
-            </div>
-          </div>
-
-          <!-- FAQ 3 -->
-          <div class="faq-item bg-white rounded-xl border border-stone-200/80 overflow-hidden transition-all">
-            <button onclick="toggleFaq(this)" class="w-full p-3.5 text-left flex justify-between items-center gap-2">
-              <span class="text-xs font-semibold text-stone-800">Dove vi trovate esattamente?</span>
-              <svg class="faq-icon w-4 h-4 text-stone-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-            <div class="faq-answer px-3.5 pb-3 text-xs text-stone-500 leading-relaxed">
-              Siamo in Via Roma 142, nel centro storico di Torino. A soli 3 minuti a piedi dalla fermata Metro e con parcheggio riservato ai clienti.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FOOTER INFO -->
-      <div class="mt-8 px-5 text-center pb-4">
-        <p class="font-serif text-sm font-semibold text-stone-800">Estetica Beauty Care</p>
-        <p class="text-[11px] text-stone-400 mt-1">P.IVA 09876543210 · Tutti i diritti riservati</p>
-      </div>
-
+  <div class="mobile-frame">
+    <!-- Trust Header -->
+    <div class="trust-bar">
+      <span>⭐ 4.9 Google Reviews (190+)</span>
+      <span>🟢 Aperto Ora</span>
     </div>
 
-
-    <!-- STICKY BOTTOM BOOKING BAR -->
-    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-warmCream via-warmCream/95 to-transparent z-40">
-      <a 
-        href="https://wa.me/390115553892?text=Ciao!%20Vorrei%20prenotare%20un%20trattamento%20presso%20Estetica%20Beauty%20Care." 
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full bg-[#25D366] hover:bg-[#20bd5a] active:scale-[0.98] text-white font-semibold py-3.5 px-5 rounded-2xl flex items-center justify-center gap-3 text-sm shadow-xl cta-glow transition-all duration-200"
-      >
-        <!-- WhatsApp SVG Icon -->
-        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-        </svg>
-        <span>Prenota con WhatsApp (1-Tap)</span>
-      </a>
+    <!-- Salon Info -->
+    <div class="salon-header">
+      <div class="salon-subtitle">Centro Estetico d'Eccellenza</div>
+      <h1>Estetica Beauty Care</h1>
+      <div class="salon-meta">
+        <span>🕒 Mar-Sab 09-19</span>
+        <span>⚡ WhatsApp 1-Tap</span>
+        <span>🏆 12+ Anni</span>
+      </div>
     </div>
 
+    <!-- Filters -->
+    <div class="filters">
+      <button class="filter-btn active">Tutti</button>
+      <button class="filter-btn">Viso & Anti-Age</button>
+      <button class="filter-btn">Corpo & SPA</button>
+      <button class="filter-btn">Sguardo</button>
+      <button class="filter-btn">Nails</button>
+    </div>
+
+    <div class="section-title">Listino Trattamenti</div>
+
+    <!-- Service 1 -->
+    <div class="service-card">
+      <div class="service-top">
+        <span class="service-name">Rituale Viso Gold Illuminante</span>
+        <span class="service-price">€65</span>
+      </div>
+      <p class="service-desc">Detersione profonda ad ultrasuoni con acido ialuronico e maschera all'oro 24k.</p>
+      <div class="service-footer">
+        <span>⏱️ 50 minuti</span>
+        <span class="tag-badge">Consigliato</span>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-card">
+      <div class="service-top">
+        <span class="service-name">Massaggio Rimodellante Drenante</span>
+        <span class="service-price">€75</span>
+      </div>
+      <p class="service-desc">Tecnica drenante intensiva anti-gonfiore con oli botanici biologici e aromaterapia.</p>
+      <div class="service-footer">
+        <span>⏱️ 60 minuti</span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-card">
+      <div class="service-top">
+        <span class="service-name">Laminazione Ciglia & Keratina</span>
+        <span class="service-price">€55</span>
+      </div>
+      <p class="service-desc">Curvatura, tinta e nutrimento alla cheratina per uno sguardo intenso fino a 6 settimane.</p>
+      <div class="service-footer">
+        <span>⏱️ 45 minuti</span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="service-card">
+      <div class="service-top">
+        <span class="service-name">Manicure Russa & Semipermanente</span>
+        <span class="service-price">€40</span>
+      </div>
+      <p class="service-desc">Dry manicure ad alta precisione con rinforzo unghia naturale e colore ultra-lucido.</p>
+      <div class="service-footer">
+        <span>⏱️ 50 minuti</span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="testimonial">
+      <p>“Professionalità ai massimi livelli! Il trattamento viso illuminante ha totalmente rigenerato la mia pelle. Prenotare via WhatsApp è stato semplicissimo e veloce.”</p>
+      <div class="testimonial-author">Valentina S. — ⭐⭐⭐⭐⭐ (Cliente Verificata)</div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section-title" style="margin-top:24px;">Domande Frequenti</div>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">Come funziona la prenotazione su WhatsApp? <span>+</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">È necessario versare un acconto? <span>+</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Dove vi trovate esattamente a Torino? <span>+</span></div>
+      </div>
+    </div>
+
+    <div class="site-footer">
+      Estetica Beauty Care — P.IVA 09876543210<br>Tutti i diritti riservati
+    </div>
   </div>
 
+  <!-- Sticky CTA -->
+  <div class="cta-fixed">
+    <a href="https://wa.me/393000000000?text=Ciao!%20Vorrei%20informazioni%20e%20prenotare%20un%20trattamento." class="whatsapp-btn" target="_blank">
+      💬 Prenota con WhatsApp (1-Tap)
+    </a>
+  </div>
 
-  <script>
-    // Category Filtering Logic
-    function filterCategory(category, button) {
-      document.querySelectorAll('.cat-btn').forEach(btn => {
-        btn.classList.remove('bg-darkCharcoal', 'text-white');
-        btn.classList.add('bg-white', 'text-stone-600', 'border', 'border-stone-200/80');
-      });
-
-      button.classList.remove('bg-white', 'text-stone-600', 'border', 'border-stone-200/80');
-      button.classList.add('bg-darkCharcoal', 'text-white');
-
-      const cards = document.querySelectorAll('.service-card');
-      cards.forEach(card => {
-        if (category === 'all' || card.classList.contains(category)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    // FAQ Accordion Toggle
-    function toggleFaq(button) {
-      const item = button.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-
-      if (!isOpen) {
-        item.classList.add('open');
-      }
-    }
-  </script>
 </body>
 </html>
