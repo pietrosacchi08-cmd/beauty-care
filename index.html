@@ -39,12 +39,11 @@
       padding-bottom: 100px;
     }
 
-    /* Top Trust Bar */
     .trust-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--gold);
       background: rgba(212, 175, 55, 0.08);
       padding: 8px 12px;
@@ -53,7 +52,6 @@
       border: 1px solid var(--border);
     }
 
-    /* Salon Header */
     .salon-header {
       text-align: center;
       padding: 10px 0 20px 0;
@@ -79,19 +77,13 @@
     .salon-meta {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      font-size: 12px;
+      gap: 12px;
+      font-size: 11px;
       color: var(--text-muted);
       margin-top: 8px;
     }
 
-    .salon-meta span {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    /* Category Filters */
+    /* Interactive Filters */
     .filters {
       display: flex;
       gap: 8px;
@@ -106,23 +98,23 @@
       background: var(--card-bg);
       color: var(--text-muted);
       border: 1px solid rgba(255,255,255,0.06);
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 20px;
       font-size: 13px;
       white-space: nowrap;
       cursor: pointer;
+      transition: all 0.2s ease;
     }
 
     .filter-btn.active {
       background: var(--gold);
       color: #000;
-      font-weight: 600;
+      font-weight: 700;
       border-color: var(--gold);
     }
 
-    /* Service Cards */
     .section-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -130,13 +122,18 @@
       margin-bottom: 12px;
     }
 
+    /* Cards */
     .service-card {
       background: var(--card-bg);
       border-radius: 12px;
       padding: 14px;
       margin-bottom: 10px;
       border: 1px solid rgba(255,255,255,0.05);
-      position: relative;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .service-card.hidden {
+      display: none;
     }
 
     .service-top {
@@ -182,7 +179,6 @@
       font-weight: 600;
     }
 
-    /* Testimonial Box */
     .testimonial {
       background: linear-gradient(145deg, #1a1e26, #14171f);
       border-left: 3px solid var(--gold);
@@ -204,9 +200,9 @@
       font-weight: 600;
     }
 
-    /* FAQ Section */
+    /* Interactive Accordion FAQ */
     .faq-container {
-      margin-top: 20px;
+      margin-top: 12px;
     }
 
     .faq-item {
@@ -216,6 +212,7 @@
       margin-bottom: 8px;
       font-size: 13px;
       border: 1px solid rgba(255,255,255,0.04);
+      cursor: pointer;
     }
 
     .faq-question {
@@ -225,7 +222,30 @@
       align-items: center;
     }
 
-    /* Footer Branding */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, margin-top 0.3s ease;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 100px;
+      margin-top: 8px;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-icon {
+      transition: transform 0.2s ease;
+      font-size: 16px;
+      color: var(--gold);
+    }
+
     .site-footer {
       text-align: center;
       font-size: 11px;
@@ -234,7 +254,6 @@
       padding-bottom: 20px;
     }
 
-    /* Sticky CTA */
     .cta-fixed {
       position: fixed;
       bottom: 0;
@@ -271,13 +290,11 @@
 <body>
 
   <div class="mobile-frame">
-    <!-- Trust Header -->
     <div class="trust-bar">
       <span>⭐ 4.9 Google Reviews (190+)</span>
       <span>🟢 Aperto Ora</span>
     </div>
 
-    <!-- Salon Info -->
     <div class="salon-header">
       <div class="salon-subtitle">Centro Estetico d'Eccellenza</div>
       <h1>Estetica Beauty Care</h1>
@@ -288,19 +305,19 @@
       </div>
     </div>
 
-    <!-- Filters -->
+    <!-- Category Buttons -->
     <div class="filters">
-      <button class="filter-btn active">Tutti</button>
-      <button class="filter-btn">Viso & Anti-Age</button>
-      <button class="filter-btn">Corpo & SPA</button>
-      <button class="filter-btn">Sguardo</button>
-      <button class="filter-btn">Nails</button>
+      <button class="filter-btn active" data-category="all">Tutti</button>
+      <button class="filter-btn" data-category="viso">Viso & Anti-Age</button>
+      <button class="filter-btn" data-category="corpo">Corpo & SPA</button>
+      <button class="filter-btn" data-category="sguardo">Sguardo</button>
+      <button class="filter-btn" data-category="nails">Nails</button>
     </div>
 
     <div class="section-title">Listino Trattamenti</div>
 
-    <!-- Service 1 -->
-    <div class="service-card">
+    <!-- Services -->
+    <div class="service-card" data-category="viso">
       <div class="service-top">
         <span class="service-name">Rituale Viso Gold Illuminante</span>
         <span class="service-price">€65</span>
@@ -312,8 +329,7 @@
       </div>
     </div>
 
-    <!-- Service 2 -->
-    <div class="service-card">
+    <div class="service-card" data-category="corpo">
       <div class="service-top">
         <span class="service-name">Massaggio Rimodellante Drenante</span>
         <span class="service-price">€75</span>
@@ -325,8 +341,7 @@
       </div>
     </div>
 
-    <!-- Service 3 -->
-    <div class="service-card">
+    <div class="service-card" data-category="sguardo">
       <div class="service-top">
         <span class="service-name">Laminazione Ciglia & Keratina</span>
         <span class="service-price">€55</span>
@@ -338,8 +353,7 @@
       </div>
     </div>
 
-    <!-- Service 4 -->
-    <div class="service-card">
+    <div class="service-card" data-category="nails">
       <div class="service-top">
         <span class="service-name">Manicure Russa & Semipermanente</span>
         <span class="service-price">€40</span>
@@ -357,17 +371,37 @@
       <div class="testimonial-author">Valentina S. — ⭐⭐⭐⭐⭐ (Cliente Verificata)</div>
     </div>
 
-    <!-- FAQ -->
+    <!-- FAQ Accordion -->
     <div class="section-title" style="margin-top:24px;">Domande Frequenti</div>
     <div class="faq-container">
-      <div class="faq-item">
-        <div class="faq-question">Come funziona la prenotazione su WhatsApp? <span>+</span></div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Come funziona la prenotazione su WhatsApp?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Cliccando sul pulsante in basso entri direttamente in chat con noi. Ti basterà indicare il giorno e l'orario preferito per ricevere conferma immediata.
+        </div>
       </div>
-      <div class="faq-item">
-        <div class="faq-question">È necessario versare un acconto? <span>+</span></div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>È necessario versare un acconto?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          No, per i trattamenti standard non richiediamo alcun acconto. Pagherai direttamente in sede al termine del servizio.
+        </div>
       </div>
-      <div class="faq-item">
-        <div class="faq-question">Dove vi trovate esattamente a Torino? <span>+</span></div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Dove vi trovate esattamente a Torino?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Il nostro centro si trova a Torino in zona centrale, facilmente raggiungibile con i mezzi pubblici e con parcheggio riservato ai clienti.
+        </div>
       </div>
     </div>
 
@@ -376,12 +410,40 @@
     </div>
   </div>
 
-  <!-- Sticky CTA -->
   <div class="cta-fixed">
     <a href="https://wa.me/393000000000?text=Ciao!%20Vorrei%20informazioni%20e%20prenotare%20un%20trattamento." class="whatsapp-btn" target="_blank">
       💬 Prenota con WhatsApp (1-Tap)
     </a>
   </div>
 
+  <script>
+    // Filtering logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active class
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.getAttribute('data-category');
+
+        // Filter cards
+        serviceCards.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // FAQ Accordion logic
+    function toggleFaq(element) {
+      element.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
