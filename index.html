@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estetica Beauty Care — Prenotazione Diretta</title>
+  <title>Estetica Beauty Care — Prenotazione Diretta WhatsApp</title>
   <style>
     :root {
       --bg: #faf7f2;
@@ -39,7 +39,7 @@
       padding-bottom: 100px;
     }
 
-    /* Trust Header */
+    /* Trust Header Google */
     .trust-bar {
       display: flex;
       justify-content: space-between;
@@ -54,14 +54,14 @@
       font-weight: 600;
     }
 
-    /* Hero Banner Stile Spa */
+    /* Hero Banner Spa */
     .hero-banner {
       width: 100%;
-      height: 180px;
+      height: 190px;
       border-radius: 16px;
       overflow: hidden;
       position: relative;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
@@ -74,7 +74,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(45,41,38,0.7) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(45,41,38,0.75) 100%);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -96,9 +96,10 @@
       margin-top: 2px;
     }
 
+    /* Meta Info Salon */
     .salon-meta {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       background: #ffffff;
       padding: 12px;
       border-radius: 12px;
@@ -109,7 +110,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.02);
     }
 
-    /* Filters */
+    /* Filters Interactive */
     .filters {
       display: flex;
       gap: 8px;
@@ -148,7 +149,7 @@
       margin-bottom: 12px;
     }
 
-    /* Cards */
+    /* Service Cards */
     .service-card {
       background: var(--card-bg);
       border-radius: 14px;
@@ -216,13 +217,13 @@
       font-weight: 600;
     }
 
-    /* Testimonial Box */
+    /* Testimonials */
     .testimonial {
       background: #ffffff;
       border-left: 3px solid var(--gold);
       padding: 14px;
       border-radius: 0 12px 12px 0;
-      margin: 20px 0;
+      margin: 16px 0;
       font-size: 13px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.02);
       border-top: 1px solid var(--border);
@@ -272,7 +273,7 @@
     }
 
     .faq-item.open .faq-answer {
-      max-height: 100px;
+      max-height: 120px;
       margin-top: 8px;
     }
 
@@ -290,6 +291,7 @@
       color: var(--text-muted);
       margin-top: 24px;
       padding-bottom: 20px;
+      line-height: 1.5;
     }
 
     /* Sticky CTA */
@@ -329,92 +331,148 @@
 <body>
 
   <div class="mobile-frame">
-    <!-- Trust Header -->
+    <!-- Trust Header Google Maps Real -->
     <div class="trust-bar">
-      <span>⭐ 4.9 Google Reviews (81+)</span>
-      <span>🟢 Aperto Ora</span>
+      <span>⭐ 4.9 Google Reviews (81+)[span_14](start_span)[span_14](end_span)</span>
+      <span>🟢 Aperto Oggi</span>
     </div>
 
-    <!-- Hero Banner -->
+    <!-- Hero Banner Spa -->
     <div class="hero-banner">
-      <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Estetica Beauty Care Spa">
+      <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Estetica Beauty Care">
       <div class="hero-overlay">
         <span class="hero-subtitle">Centro Estetico d'Eccellenza</span>
-        <h1 class="hero-title">Estetica Beauty Care</h1>
+        <h1 class="hero-title">Estetica Beauty Care</h1>[span_15](start_span)[span_15](end_span)
       </div>
     </div>
 
+    <!-- Real Meta Info -->
     <div class="salon-meta">
-      <span>🕒 Mar-Sab 09-19</span>
-      <span>⚡ WhatsApp 1-Tap</span>
-      <span>🏆 Trattamenti Avanzati</span>
+      <span>📍 Via Rossana 6/C, Torino[span_16](start_span)[span_16](end_span)</span>
+      <span>⚡ WA: 351 902 1301[span_17](start_span)[span_17](end_span)</span>
+      <span>💳 Pos / NFC[span_18](start_span)[span_18](end_span)</span>
     </div>
 
-    <!-- Filters -->
+    <!-- Interactive Filters -->
     <div class="filters">
       <button class="filter-btn active" data-category="all">Tutti</button>
-      <button class="filter-btn" data-category="tshape">T-Shape</button>
-      <button class="filter-btn" data-category="corpo">Corpo & SPA</button>
-      <button class="filter-btn" data-category="viso">Viso & Skeyndor</button>
+      <button class="filter-btn" data-category="tshape">T-Shape & Corpo</button>
+      <button class="filter-btn" data-category="viso">Viso & Sguardo</button>
+      <button class="filter-btn" data-category="nails">Nails & SPA</button>
+      <button class="filter-btn" data-category="epilazione">Epilazione</button>
     </div>
 
-    <div class="section-title">Listino Trattamenti di Punta</div>
+    <div class="section-title">Listino Trattamenti Ufficiali</div>
 
-    <!-- Service 1: T-Shape -->
+    <!-- 1. T-Shape -->
     <div class="service-card" data-category="tshape">
-      <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80" class="service-img" alt="Trattamento T-Shape">
+      <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80" class="service-img" alt="T-Shape">
       <div class="service-body">
         <div class="service-top">
-          <span class="service-name">Trattamento T-Shape Avanzato</span>
+          <span class="service-name">Trattamento T-Shape Avanzato</span>[span_19](start_span)[span_19](end_span)
           <span class="service-price">€85</span>
         </div>
-        <p class="service-desc">Rimodellamento corpo e tonificazione profonda. Risultati visibili fin dalla prima seduta.</p>
+        <p class="service-desc">Rimodellamento corpo e tonificazione profonda. Risultati visibili fin dalla prima seduta[span_20](start_span)[span_20](end_span)[span_21](start_span)[span_21](end_span).</p>
         <div class="service-footer">
-          <span>⏱️ 50 minuti</span>
-          <span class="tag-badge">Più Richiesto</span>
+          <span>⏱️ Consigliato da Svetlana[span_22](start_span)[span_22](end_span)</span>
+          <span class="tag-badge">Il Più Richiesto</span>
         </div>
       </div>
     </div>
 
-    <!-- Service 2: Massaggio Drenante -->
-    <div class="service-card" data-category="corpo">
-      <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" class="service-img" alt="Massaggio Linfodrenante">
+    <!-- 2. Bodyslimming -->
+    <div class="service-card" data-category="tshape">
+      <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" class="service-img" alt="Bodyslimming">
       <div class="service-body">
         <div class="service-top">
-          <span class="service-name">Massaggio Linfodrenante Rilassante</span>
-          <span class="service-price">€70</span>
+          <span class="service-name">Bodyslimming ~ Trattamento Corpo</span>[span_23](start_span)[span_23](end_span)
+          <span class="service-price">€80</span>
         </div>
-        <p class="service-desc">Tecnica drenante intensiva in un'atmosfera profondamente rilassante e defaticante.</p>
+        <p class="service-desc">Trattamento corpo innovativo ad alta efficacia per ridurre inestetismi e gonfiore[span_24](start_span)[span_24](end_span).</p>
         <div class="service-footer">
-          <span>⏱️ 60 minuti</span>
+          <span>⏱️ Tecnologie Avanzate</span>
           <span></span>
         </div>
       </div>
     </div>
 
-    <!-- Service 3: Skeyndor Viso -->
+    <!-- 3. Viso Skeyndor / Fili Collagene -->
     <div class="service-card" data-category="viso">
-      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" class="service-img" alt="Skeyndor Viso">
+      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" class="service-img" alt="Trattamento Viso">
       <div class="service-body">
         <div class="service-top">
-          <span class="service-name">Viso Skeyndor Power Hyaluronic</span>
-          <span class="service-price">€75</span>
+          <span class="service-name">Lift Boost con Fili di Collagene</span>[span_25](start_span)[span_25](end_span)
+          <span class="service-price">€100</span>
         </div>
-        <p class="service-desc">Trattamento idratante intensivo con acido ialuronico e booster ad alta concentrazione.</p>
+        <p class="service-desc">Effetto lifting immediato senza aghi. Tensione, idratazione profonda e rigenerazione cutanea[span_26](start_span)[span_26](end_span).</p>
         <div class="service-footer">
-          <span>⏱️ 50 minuti</span>
-          <span class="tag-badge">Linea Esclusiva</span>
+          <span>⏱️ Trattamento Premium</span>
+          <span class="tag-badge">Lifting Senza Aghi</span>
         </div>
       </div>
     </div>
 
-    <!-- Testimonial -->
-    <div class="testimonial">
-      <p>“Il trattamento T-Shape mi ha dato risultati visibili fin da subito e il massaggio linfodrenante crea un'atmosfera davvero rilassante! Prenotare via WhatsApp è stato facilissimo.”</p>
-      <div class="testimonial-author">Sara M. — ⭐⭐⭐⭐⭐ (Cliente Google)</div>
+    <!-- 4. Pulizia Viso Profonda -->
+    <div class="service-card" data-category="viso">
+      <img src="https://images.unsplash.com/photo-1512290900673-7002ddb92109?auto=format&fit=crop&w=600&q=80" class="service-img" alt="Pulizia Viso">
+      <div class="service-body">
+        <div class="service-top">
+          <span class="service-name">Pulizia Viso Profonda</span>[span_27](start_span)[span_27](end_span)
+          <span class="service-price">€60</span>
+        </div>
+        <p class="service-desc">Detersione profonda con sieri idratanti ed esfoliazione delicata per una pelle radiosa[span_28](start_span)[span_28](end_span).</p>
+        <div class="service-footer">
+          <span>⏱️ Detersione & Siero</span>
+          <span></span>
+        </div>
+      </div>
     </div>
 
-    <!-- FAQ Accordion -->
+    <!-- 5. Extension / Laminazione Ciglia -->
+    <div class="service-card" data-category="viso">
+      <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=600&q=80" class="service-img" alt="Extension Ciglia">
+      <div class="service-body">
+        <div class="service-top">
+          <span class="service-name">Extension Ciglia One to One / 2D-3D</span>[span_29](start_span)[span_29](end_span)[span_30](start_span)[span_30](end_span)
+          <span class="service-price">da €60</span>[span_31](start_span)[span_31](end_span)
+        </div>
+        <p class="service-desc">Sguardo magnetico, seducente e folto con applicazione ad alta precisione[span_32](start_span)[span_32](end_span).</p>
+        <div class="service-footer">
+          <span>⏱️ Ciglia Professionali</span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Pedicure SPA + Semipermanente -->
+    <div class="service-card" data-category="nails">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80" class="service-img" alt="Nails SPA">
+      <div class="service-body">
+        <div class="service-top">
+          <span class="service-name">Pedicure Completo + SPA + Semi</span>[span_33](start_span)[span_33](end_span)
+          <span class="service-price">€60</span>
+        </div>
+        <p class="service-desc">Trattamento rigenerante per i piedi con scrub, idratazione profonda e colore a lunga durata[span_34](start_span)[span_34](end_span)[span_35](start_span)[span_35](end_span).</p>
+        <div class="service-footer">
+          <span>⏱️ Trattamento Relax</span>
+          <span class="tag-badge">Top Pedicure</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial Reale 1 (Victoria) -->
+    <div class="testimonial">
+      <p>“Ottima esperienza! Mi sono recata presso il centro per un trattamento T-Shape e ne sono rimasta davvero soddisfatta[span_36](start_span)[span_36](end_span). Un ringraziamento speciale a Svetlana, estremamente gentile, professionale e attenta. Centro pulito e accogliente[span_37](start_span)!”[span_37](end_span)</p>
+      <div class="testimonial-author">Victoria Kuzhba — ⭐⭐⭐⭐⭐ (Google Review)[span_38](start_span)[span_38](end_span)</div>
+    </div>
+
+    <!-- Testimonial Reale 2 (Tania) -->
+    <div class="testimonial">
+      <p>“Se cercate professionalità e risultati di qualità vi trovate nel posto giusto[span_39](start_span)[span_39](end_span)! Svetlana è una persona davvero affidabile e qualificata nel suo lavoro[span_40](start_span)[span_40](end_span).”</p>
+      <div class="testimonial-author">Tania Shulchenko — ⭐⭐⭐⭐⭐ (Google Review)[span_41](start_span)[span_41](end_span)</div>
+    </div>
+
+    <!-- FAQ Accordion con Dati Reali -->
     <div class="section-title" style="margin-top:24px;">Domande Frequenti</div>
     <div class="faq-container">
       <div class="faq-item" onclick="toggleFaq(this)">
@@ -423,33 +481,46 @@
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          Cliccando sul tasto in basso invii un messaggio diretto alla nostra reception per verificare gli orari e confermare l'appuntamento in 1 tap.
+          Cliccando sul pulsante verde entri subito in chat diretta con Svetlana su WhatsApp (al 351 902 1301) per richiedere disponibilità e fissare l'orario in 1 tap[span_42](start_span)[span_42](end_span)[span_43](start_span)[span_43](end_span).
         </div>
       </div>
 
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-question">
-          <span>È necessario versare un acconto?</span>
+          <span>Quali metodi di pagamento accettate?</span>
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          No, nessun acconto online. Pagherai direttamente in istituto al termine del tuo trattamento.
+          In istituto accettiamo contanti, carte di credito, carte di debito e pagamenti contactless via Smartphone (Apple Pay / Google Pay)[span_44](start_span)[span_44](end_span).
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Dove vi trovate a Torino?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Siamo in Via Rossana 6/C a Torino[span_45](start_span)[span_45](end_span). Il centro è facilmente raggiungibile e dotato di ingresso e bagni accessibili[span_46](start_span)[span_46](end_span).
         </div>
       </div>
     </div>
 
     <div class="site-footer">
-      Estetica Beauty Care — P.IVA 09876543210<br>Tutti i diritti riservati
+      Estetica Beauty Care — Via Rossana, 6/C, Torino TO[span_47](start_span)[span_47](end_span)<br>
+      Attività a conduzione femminile[span_48](start_span)[span_48](end_span) — P.IVA Verificata
     </div>
   </div>
 
+  <!-- Sticky CTA WhatsApp con Numero Reale -->
   <div class="cta-fixed">
-    <a href="https://wa.me/393000000000?text=Ciao!%20Vorrei%20informazioni%20e%20prenotare%20un%20trattamento." class="whatsapp-btn" target="_blank">
-      💬 Prenota con WhatsApp (1-Tap)
+    <a href="https://wa.me/393519021301?text=Ciao%20Svetlana!%20Ho%20visto%20il%20vostro%20sito%20e%20vorrei%20prenotare%20un%20trattamento." class="whatsapp-btn" target="_blank">
+      💬 Prenota con Svetlana su WhatsApp (1-Tap)
     </a>
   </div>
 
   <script>
+    // Filtering logic
     const filterBtns = document.querySelectorAll('.filter-btn');
     const serviceCards = document.querySelectorAll('.service-card');
 
@@ -470,6 +541,7 @@
       });
     });
 
+    // Accordion logic
     function toggleFaq(element) {
       element.classList.toggle('open');
     }
